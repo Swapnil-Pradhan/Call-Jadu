@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: lightgreen;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calling Jadu</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#002e23">
+    <meta name="user-scalable" content="no">
+
+</head>
+
+<body bgcolor="black" onkeydown="keypress(event)">
+    <main>
+        <div style="grid-area: receive;">
+            <h1>RECEIVING</h1>
+            <span class="square"></span>
+            <hr color="lightgreen">
+        </div>
+
+        <div style="grid-area: send;">
+            <h1>SENDING</h1>
+            <span class="square active"></span>
+            <span id="graph"></span>
+        </div>
+
+        <div style="grid-area: orbit;" id="orbit">
+            <span class="circle" style="animation: rotate 9s linear infinite;">
+                <hr color="lightgreen">
+            </span>
+            <span class="oval" style="animation: rotate 3s linear infinite;"></span>
+            <span class="oval" style="animation: rotate 2s linear infinite;"></span>
+        </div>
+
+        <div style="grid-area: bcdef;" id="bcdef">
+            <span>
+                <span class="right">UPLINK</span><span>-</span><span class="left">YES</span>
+                <span class="right">AIIR.</span><span>-</span><span class="left">N '</span>
+                <span class="right">INC.</span><span>-</span><span class="left">N 'FOR</span>
+                <span></span><span></span><span></span>
+                <span class="right">SIGNAL</span><span>-</span><span class="left">01</span>
+            </span>
+            <h2>
+                <big>B</big>: 066<br>
+                <big>C</big>: 067<br>
+                <big>D</big>: 068<br>
+                <big>E</big>: 069<br>
+                <big>F</big>: 070
+            </h2>
+        </div>
+
+        <h2 id="press">
+            <b>Press key&nbsp;</b> <big id="flash">B</big>
+        </h2>
+    </main>
+    <section>
+        <div>
+            <span>PRESS ENTER TO CONTINUE<b>।</b></span>
+        </div>
+    </section>
+<img src="assets/img/jadu.png" alt="jadu">
+    <script src="script.js" defer></script>
+</body>
+
+</html>

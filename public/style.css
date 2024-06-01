@@ -1,0 +1,280 @@
+body {
+    font-family: Andale Mono, monospace;
+    margin: 0;
+    color: lightgreen;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: none;
+}
+
+.ultra {
+    scale: 1.1;
+    filter: brightness(.5) blur(4px);
+    rotate: 9deg;
+}
+
+img {
+    position: fixed;
+    height: 90vh;
+    transition: 7s;
+    left: 50%;
+    translate: -50% 100%;
+}
+
+.ultra ~ img {
+    filter: drop-shadow(0 0 5vw goldenrod);
+    translate: -50% -100%;
+}
+
+/* ENTER SCREEN */
+section {
+    background-image: url("assets/img/space.webp");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+
+    &::before {
+        content: "➬";
+        font-size: 18ch;
+        position: fixed;
+        top: 0;
+        right: 3vw;
+        filter: blur(4px) contrast(4);
+    }
+
+    & div {
+        width: fit-content;
+        height: fit-content;
+        padding: .7ch;
+        margin: 0;
+        font-size: xxx-large;
+        background-color: black;
+
+        & span {
+            border: 5px solid lightgreen;
+            padding: .3ch;
+
+            & b {
+                animation: blink 1s linear infinite alternate
+            }
+        }
+    }
+}
+
+main {
+    transition: 12s;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "receive send" "orbit bcdef" "press press";
+    grid-template-rows: 5fr 5fr 1fr;
+    background-image: radial-gradient(circle at 69% 69%, rgb(14, 23, 40), transparent), repeating-linear-gradient(180deg,
+            rgba(0, 0, 0, 0) 0,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(0, 0, 0, 0) 100%);
+
+    &>* {
+        border: 5px solid forestgreen;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+
+        & .square {
+            height: 20vh;
+            width: 20vh;
+            align-self: center;
+            justify-self: center;
+            background-image: linear-gradient(45deg, darkgreen, lightgreen);
+            transform: rotateX(45deg) rotateY(9deg) rotateZ(45deg) scale(1.2);
+            filter: drop-shadow(0 0 1rem forestgreen);
+        }
+
+        & .active {
+            background-image: linear-gradient(0deg, transparent 0, red 2%, purple 3%, rgba(32, 128, 32, 0.2) 3%, transparent 99%);
+            animation: scanShort 3s linear 0s infinite alternate;
+            background-repeat: no-repeat;
+        }
+
+        & #graph {
+            bottom: 2vh;
+            align-self: center;
+            position: absolute;
+            width: 89%;
+            height: 9ch;
+            background-image: url("assets/img/graph.svg");
+            animation: graph 5s infinite linear;
+            filter: drop-shadow(0 0 1rem lightgreen);
+        }
+
+        &>hr {
+            bottom: 2vh;
+            width: 89%;
+            align-self: center;
+            position: absolute;
+            height: .5vh;
+        }
+
+        & h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    }
+
+    & #orbit {
+        filter: drop-shadow(0 0 1rem lightgreen);
+
+        &>span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid lightgreen;
+            border-radius: 50%;
+            transform-origin: top left;
+        }
+
+        & .circle {
+            aspect-ratio: 1/1;
+            height: 25vh;
+
+            &>hr {
+                width: 69%;
+                height: .5vh;
+                rotate: 90deg;
+                translate: 0 -99%;
+            }
+        }
+
+        & .oval {
+            width: 25vw;
+            height: 25vh;
+        }
+
+        & .line {
+            width: 33%;
+            border-radius: 9px;
+
+        }
+    }
+
+    & #bcdef {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 9%;
+
+        &>span {
+            display: grid;
+            height: 50%;
+            grid-template-columns: auto auto auto;
+            grid-gap: 5px;
+            font-size: 2ch;
+
+            &>.left {
+                text-align: left;
+            }
+
+            &>.center {
+                text-align: center;
+            }
+
+            &>.right {
+                text-align: right;
+            }
+        }
+
+        &>h2 {
+            position: absolute;
+            right: 5%;
+
+            &>big {
+                font-size: 3ch;
+            }
+        }
+    }
+
+    & #press {
+        grid-area: press;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &>big {
+            color: lightsalmon;
+            font-size: 4ch;
+            animation: flash 1s infinite alternate;
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(0deg, transparent 0, rgba(32, 128, 32, 0.2) 2%, rgba(32, 128, 32, 0.8) 3%, rgba(32, 128, 32, 0.2) 3%, transparent 99%);
+        background-repeat: no-repeat;
+        animation: scan 7.5s linear 0s infinite;
+    }
+}
+
+
+@keyframes graph {
+    to {
+        background-position: 100% 0;
+    }
+}
+
+@keyframes scanShort {
+    0% {
+        background-position: 0 -100px;
+    }
+
+    50% {
+        filter: blur(2px) drop-shadow(0 0 1rem forestgreen) contrast(2);
+        border-radius: 18px;
+        transform: rotateX(33deg) rotateY(0deg) rotateZ(45deg) scale(1.2);
+    }
+
+    75%,
+    100% {
+        background-position: 0 50px;
+        filter: drop-shadow(0 0 1rem forestgreen);
+    }
+}
+
+@keyframes scan {
+    0% {
+        background-position: 0 -100vh;
+    }
+
+    75%,
+    100% {
+        background-position: 0 100vh;
+    }
+}
+
+@keyframes blink {
+
+    80%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes rotate {
+    to {
+        rotate: 360deg;
+    }
+}
+
+@keyframes flash {
+    to {
+        text-shadow: 0 0 1rem crimson;
+    }
+}
