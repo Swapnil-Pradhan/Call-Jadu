@@ -213,6 +213,11 @@ main {
             font-size: 4ch;
             animation: flash 1s infinite alternate;
         }
+
+        & i {
+            position: absolute;
+            right: 1svh;
+        }
     }
 
     &::before {
