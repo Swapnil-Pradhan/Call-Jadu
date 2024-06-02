@@ -166,12 +166,12 @@ main {
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 0 9%;
 
         &>span {
             display: grid;
             height: 50%;
             grid-template-columns: auto auto auto;
+            margin-left: 2vh;
             grid-gap: 5px;
             font-size: 2ch;
 
