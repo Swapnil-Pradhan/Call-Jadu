@@ -5,7 +5,10 @@ body {
     overflow: hidden;
     user-select: none;
     -webkit-user-select: none;
-    cursor: none;
+}
+
+*{
+    cursor: url("assets/img/cursor.png"), auto !important;
 }
 
 .ultra {
